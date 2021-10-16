@@ -1,14 +1,13 @@
 <template>
-  <router-view/>
+  <h1>hello world!!</h1>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  components: {}
+  name: "index"
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
