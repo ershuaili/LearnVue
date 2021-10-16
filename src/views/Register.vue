@@ -2,7 +2,9 @@
   <body id="poster">
   <el-form class="login-container" label-position="left"
            label-width="0px">
-    <h3 class="login_title">系统登录</h3>
+    <h3 class="login_title">欢迎注册</h3>
+    <span>已有账号?</span>
+    <router-link to="to/"> 登录</router-link>
     <el-form-item>
       <el-input v-model="loginForm.username" auto-complete="off" placeholder="账号" type="text"></el-input>
     </el-form-item>
@@ -11,7 +13,7 @@
                 placeholder="密码" type="password"></el-input>
     </el-form-item>
     <el-checkbox label="记住我"></el-checkbox>
-    <el-form-item>
+    <el-form-item style="width: 100%">
       <el-button style="width: 100%;background: #505458;border: none" type="primary" v-on:click="login">登录</el-button>
     </el-form-item>
     <router-link to="to/test">忘了密码</router-link>
