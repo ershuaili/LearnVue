@@ -1,7 +1,6 @@
 <template>
   <body id="poster">
-  <el-form class="login-container" label-position="left"
-           label-width="0px">
+  <el-form class="login-container" label-position="left" label-width="0px">
     <h3 class="login_title">系统登录</h3>
     <el-form-item>
       <el-input v-model="loginForm.username" auto-complete="off" placeholder="账号" type="text"></el-input>
@@ -56,12 +55,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  margin: 0;
-  top: 0;
-  left: 0;
-}
-
 #poster {
   background: url("../assets/background.jpg") no-repeat center;
   height: 100%;
