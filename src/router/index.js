@@ -1,11 +1,22 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Login from '../views/Login.vue'
 
 const routes = [
   {
     path: '/',
+    name: '/',
+    redirect: '/login'
+  },
+  {
+    // 登录界面
+    path: '/login',
     name: 'Login',
-    component: Login
+    component: () => import('../views/Login.vue')
+  },
+  {
+    // 注册界面
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/Register.vue')
   },
   {
     path: '/home',
@@ -16,11 +27,6 @@ const routes = [
     path: '/about',
     name: 'About',
     component: () => import('../views/About.vue')
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: () => import('../views/Register.vue')
   }
 ]
 

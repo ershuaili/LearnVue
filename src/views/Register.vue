@@ -9,14 +9,13 @@
       <el-input v-model="loginForm.username" auto-complete="off" placeholder="账号" type="text"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-input v-model="loginForm.password" auto-complete="off"
-                placeholder="密码" type="password"></el-input>
+      <el-input v-model="loginForm.password" auto-complete="off" placeholder="密码" type="password"></el-input>
     </el-form-item>
     <el-checkbox label="记住我"></el-checkbox>
     <el-form-item style="width: 100%">
       <el-button style="width: 100%;background: #505458;border: none" type="primary" v-on:click="login">登录</el-button>
     </el-form-item>
-    <router-link to="to/test">忘了密码</router-link>
+    <router-link to="to/home">忘了密码</router-link>
     <router-link style="float: right" to="to/register">注册</router-link>
   </el-form>
   </body>
