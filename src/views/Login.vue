@@ -41,7 +41,8 @@ export default {
       axios.post('/b', params)
           .then(successResponse => {
             if (successResponse.data === 200) {
-              this.$router.replace({path: '/home'})
+              const path = this.$route.query.redirect;
+              this.$router.replace({path: path === '/' || path === undefined ? '/home' : path})
             } else {
               alert("用户名或密码错误");
             }
