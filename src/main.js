@@ -11,19 +11,3 @@ import axios from 'axios'
 axios.defaults.baseURL = 'http://localhost:8081'
 
 createApp(App).use(router).use(store).use(ElementPlus).mount('#app')
-
-router.beforeEach((to, from, next) => {
-        if (to.meta.requireAuth) {
-            if (store.state.user.username) {
-                next()
-            } else {
-                next({
-                    path: 'login',
-                    query: {redirect: to.fullPath}
-                })
-            }
-        } else {
-            next()
-        }
-    }
-)
