@@ -1,15 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import store from "@/store";
-
+// 路由数组
 const routes = [
-    {
-        path: '/index',
-        name: 'AppIndex',
-        component: () => import('../views/Login.vue'),
-        meta: {
-            requireAuth: true
-        }
-    },
     {
         path: '/',
         name: '/',
@@ -28,6 +19,11 @@ const routes = [
         component: () => import('../views/Register.vue')
     },
     {
+        path: '/index',
+        name: 'Index',
+        component: () => import('../views/Index.vue')
+    },
+    {
         path: '/home',
         name: 'Home',
         component: () => import('../views/Home.vue')
@@ -39,24 +35,11 @@ const routes = [
     }
 ];
 
+// 创建一个路由
 const router = createRouter({
     history: createWebHistory(),
     routes
 })
 
-router.beforeEach((to, from, next) => {
-        if (to.meta.requireAuth) {
-            if (store.state.user.username) {
-                next()
-            } else {
-                next({
-                    path: 'login',
-                    query: {redirect: to.fullPath}
-                })
-            }
-        } else {
-            next()
-        }
-    }
-)
+// 暴露这个路由
 export default router

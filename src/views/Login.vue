@@ -42,7 +42,7 @@ export default {
           .then(successResponse => {
             if (successResponse.data === 200) {
               const path = this.$route.query.redirect;
-              this.$router.replace({path: path === '/' || path === undefined ? '/home' : path})
+              this.$router.replace({path: path === '/' || path === undefined ? '/index' : path})
             } else {
               alert("用户名或密码错误");
             }
