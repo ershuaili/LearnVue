@@ -1,20 +1,27 @@
 <template>
   <h1>hello world!!</h1>
-  <router-link to='/about'>
-    <button>点击转跳auto</button>
-  </router-link>
-  <router-link to='/home'>
+
+  <button @click="auto">点击转跳auto</button>
+
+  <router-link active-class="active" to='/home'>
     <button>点击转跳home</button>
   </router-link>
-  <about/>
+  <div>
+    <router-view/>
+  </div>
 </template>
 
 <script>
-import About from "@/components/About";
-
 export default {
-  name: "index",
-  components: {About}
+  name: "Index",
+  components: {},
+  methods: {
+    auto() {
+      this.$router.push({
+        name: 'auto',
+      })
+    }
+  }
 }
 </script>
 

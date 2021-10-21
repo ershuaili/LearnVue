@@ -1,11 +1,11 @@
 import {createRouter, createWebHistory} from 'vue-router'
 // 路由数组
 const routes = [
-    {
-        path: '/',
-        name: '/',
-        redirect: '/login'
-    },
+    // {
+    //     path: '/',
+    //     name: '/',
+    //     component: () => import('../App.vue')
+    // },
     {
         // 登录界面
         path: '/login',
