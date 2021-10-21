@@ -6,12 +6,15 @@
   <router-link to='/home'>
     <button>点击转跳home</button>
   </router-link>
-  <router-view/>
+  <about/>
 </template>
 
 <script>
+import About from "@/components/About";
+
 export default {
-  name: "index"
+  name: "index",
+  components: {About}
 }
 </script>
 
