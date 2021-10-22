@@ -1,5 +1,5 @@
 <template>
-  <h1>我是about页面</h1>
+  <h1>关于我</h1>
   <button @click="toIndex">点击转跳index页面</button>
 </template>
 

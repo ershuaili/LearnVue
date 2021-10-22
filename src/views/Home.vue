@@ -1,14 +1,17 @@
 <template>
   <div>
-    <div>我是头部导航栏,我固定不动</div>
+    <!--为全局添加头部导航栏-->
+    <nav-menu class="nav-menu"></nav-menu>
     <router-view/>
   </div>
 </template>
 
 <script>
+import NavMenu from "@/components/common/NavMenu";
+
 export default {
   name: 'Home',
-  components: {}
+  components: {NavMenu}
 }
 </script>
 
