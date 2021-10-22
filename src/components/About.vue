@@ -1,12 +1,18 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <h1>我是about页面</h1>
+  <button @click="toIndex">点击转跳index页面</button>
 </template>
 
 <script>
 export default {
   name: 'About',
-  components: {}
+  components: {},
+  methods: {
+    toIndex() {
+      this.$router.push({
+        name: 'AppIndex',
+      })
+    },
+  }
 }
 </script>

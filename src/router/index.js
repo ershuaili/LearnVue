@@ -1,11 +1,33 @@
 import {createRouter, createWebHistory} from 'vue-router'
+import Home from '../views/Home.vue'
 // 路由数组
 const routes = [
-    // {
-    //     path: '/',
-    //     name: '/',
-    //     component: () => import('../App.vue')
-    // },
+    {
+        path: '/',
+        name: 'Default',
+        redirect: 'home',
+        component: Home,
+    },
+    // home组件作为全局的父组件
+    {
+        path: '/home',
+        name: 'Home',
+        component: Home,
+        redirect: '/index',
+        children: [
+            {
+                path: '/index',
+                name: 'AppIndex',
+                component: () => import('../components/AppIndex.vue')
+            },
+            {
+                path: '/about',
+                name: 'About',
+                component: () => import('../components/About.vue')
+            }
+        ]
+
+    },
     {
         // 登录界面
         path: '/login',
@@ -18,21 +40,6 @@ const routes = [
         name: 'Register',
         component: () => import('../views/Register.vue')
     },
-    {
-        path: '/index',
-        name: 'Index',
-        component: () => import('../views/Index.vue')
-    },
-    {
-        path: '/home',
-        name: 'Home',
-        component: () => import('../components/Home.vue')
-    },
-    {
-        path: '/about',
-        name: 'About',
-        component: () => import('../components/About.vue')
-    }
 ];
 
 // 创建一个路由
