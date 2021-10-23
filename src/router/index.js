@@ -21,6 +21,21 @@ const routes = [
                 component: () => import('../components/AppIndex.vue')
             },
             {
+                path: '/type',
+                name: 'Type',
+                component: () => import('../components/Type.vue')
+            },
+            {
+                path: '/message',
+                name: 'Message',
+                component: () => import('../components/Message.vue')
+            },
+            {
+                path: '/picture',
+                name: 'Picture',
+                component: () => import('../components/Picture.vue')
+            },
+            {
                 path: '/about',
                 name: 'About',
                 component: () => import('../components/About.vue')

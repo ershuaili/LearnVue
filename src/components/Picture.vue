@@ -1,5 +1,5 @@
 <template>
-  <h1>留言板</h1>
+  <h1>照片墙</h1>
 </template>
 
 <script>

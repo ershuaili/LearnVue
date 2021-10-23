@@ -1,28 +1,17 @@
 <template>
   <div>
-    <el-menu
-        :default-active="currentPath"
-        active-text-color="red"
-        background-color="white"
-        mode="horizontal"
-        router
-        style="min-width: 1300px"
-        text-color="#222">
-      <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name">
-        {{ item.navItem }}
-      </el-menu-item>
-      <span style="position: absolute;padding-top: 20px;right: 43%;font-size: 20px;font-weight: bold">White Jotter - Your Mind Palace</span>
-      <el-input
-          v-model="keywords"
-          placeholder="快速搜索..."
-          prefix-icon="el-icon-search"
-          size="medium"
-          style="width: 300px;position:absolute;margin-top: 12px;right: 18%">
-      </el-input>
-    </el-menu>
+    <div id="reading-progress-bar" style="width:0"></div>
+    <el-affix :offset="0">
+      <el-menu :default-active="currentPath"
+               mode="horizontal"
+               router>
+        <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name">
+          {{ item.navItem }}
+        </el-menu-item>
+      </el-menu>
+    </el-affix>
   </div>
 </template>
-
 <script>
 export default {
   name: 'NavMenu',
@@ -30,11 +19,12 @@ export default {
     return {
       navList: [
         {name: '/index', navItem: '首页'},
-        {name: '/about', navItem: '关于'},
-        {name: '/library', navItem: '图书馆'},
-        {name: '/login', navItem: '管理中心'}
+        {name: '/type', navItem: '分类'},
+        {name: '/message', navItem: '留言板'},
+        {name: '/picture', navItem: '照片墙'},
+        {name: '/about', navItem: '关于我'}
       ],
-      keywords: ''
+      keywords: '',
     }
   },
   computed: {
@@ -46,17 +36,41 @@ export default {
         return this.$route.path
       }
     }
-  }
+  },
+  // 组件创建完成
+  created() {
+    //监听鼠标滚动事件
+    window.addEventListener('mousewheel', this.handleScroll, false);
+  },
+  methods: {
+    // 鼠标滚动事件
+    handleScroll() {
+      // 页面滚动距顶部距离
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      // 网页全文高度 - 网页可见区域高度
+      let c = scrollTop / (document.body.scrollHeight - document.documentElement.clientHeight) * 100
+      c += "%";
+      document.getElementById("reading-progress-bar").style.width = String(c);
+    }
+  },
 }
 </script>
 
 <style scoped>
-a {
-  text-decoration: none;
+.el-menu--horizontal > .el-menu-item {
+  border-bottom: none;
 }
 
-span {
-  pointer-events: none;
+.el-menu--horizontal > .el-menu-item.is-active {
+  border-bottom: none;
 }
 
+/* 进度条 */
+#reading-progress-bar {
+  position: fixed;
+  top: 0;
+  background: #ef4e7b;
+  height: 2px;
+  z-index: 1000;
+}
 </style>
