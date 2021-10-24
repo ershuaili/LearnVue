@@ -1,26 +1,25 @@
 <template>
-  <div>
-    <h1>11111111111</h1>
-    <h1>22222222222</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <h1>我是index页面</h1>
-    <button @click="about">点击转跳auto页面</button>
+  <div class="index">
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
+    <blog-list/>
   </div>
 </template>
 
 <script>
+import BlogList from "@/components/common/BlogList";
+
 export default {
   name: "Index",
-  components: {},
+  components: {BlogList},
   methods: {
     about() {
       this.$router.push({
@@ -30,3 +29,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.index {
+  padding-top: 1px;
+  padding-bottom: 30px;
+}
+</style>

@@ -1,15 +1,12 @@
 <template>
   <div>
     <div id="reading-progress-bar" style="width:0"></div>
-    <el-affix :offset="0">
-      <el-menu :default-active="currentPath"
-               mode="horizontal"
-               router>
-        <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name">
-          {{ item.navItem }}
-        </el-menu-item>
-      </el-menu>
-    </el-affix>
+    <div class="nav-bar">
+      <router-link v-for="(item,index) in navList" :key="index" :to="item.name" active-class="nav-menu-active"
+                   class="nav-menu">
+        {{ item.navItem }}
+      </router-link>
+    </div>
   </div>
 </template>
 <script>
@@ -24,17 +21,6 @@ export default {
         {name: '/picture', navItem: '照片墙'},
         {name: '/about', navItem: '关于我'}
       ],
-      keywords: '',
-    }
-  },
-  computed: {
-    currentPath() {
-      const x = this.$route.path.indexOf('/', 1);
-      if (x !== -1) {
-        return this.$route.path.substring(0, x)
-      } else {
-        return this.$route.path
-      }
     }
   },
   // 组件创建完成
@@ -57,14 +43,6 @@ export default {
 </script>
 
 <style scoped>
-.el-menu--horizontal > .el-menu-item {
-  border-bottom: none;
-}
-
-.el-menu--horizontal > .el-menu-item.is-active {
-  border-bottom: none;
-}
-
 /* 进度条 */
 #reading-progress-bar {
   position: fixed;
@@ -73,4 +51,33 @@ export default {
   height: 2px;
   z-index: 1000;
 }
+
+/* 导航栏 */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background: #333333;
+  text-align: center;
+}
+
+/* 导航栏按钮 */
+.nav-menu {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 5px 20px;
+  line-height: 50px;
+}
+
+.nav-menu-active {
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  color: #ffffff;
+  line-height: 50px;
+  padding: 5px 20px;
+  margin: 20px;
+}
+
 </style>

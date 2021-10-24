@@ -57,7 +57,7 @@ export default {
 <style scoped>
 /*整体背景*/
 #poster {
-  background: url("../assets/background.jpg") no-repeat center;
+  background: url("../assets/login-background.jpg") no-repeat center;
   height: 100%;
   width: 100%;
   background-size: cover;

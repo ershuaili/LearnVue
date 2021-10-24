@@ -1,8 +1,12 @@
 <template>
   <div>
-    <!--为全局添加头部导航栏-->
-    <nav-menu class="nav-menu"></nav-menu>
-    <router-view/>
+    <!--全局头部导航栏-->
+    <nav-menu/>
+    <!-- 主体部分 -->
+    <div class="main">
+      <div class="background"></div>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -16,8 +20,18 @@ export default {
 </script>
 
 <style>
-.nav-menu {
-  /*margin-bottom: 40px;*/
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+body {
+  margin-top: 50px;
+}
+
+.background {
+  background: url("../assets/background.jpg");
+  width: 100%;
+  /*/ / 大小设置为100 % */
+  height: 100%;
+  /*/ / 大小设置为100 % */
+  position: fixed;
+  background-size: 100% 100%;
+  z-index: -1024;
 }
 </style>

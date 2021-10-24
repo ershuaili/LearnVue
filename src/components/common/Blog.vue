@@ -1,12 +1,10 @@
 <template>
-  <h1>分类</h1>
+  <h1>博客正文</h1><br/><br/>
 </template>
 
 <script>
-
 export default {
-  name: "Types",
-  components: {}
+  name: "Blog"
 }
 </script>
 
