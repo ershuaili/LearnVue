@@ -49,7 +49,7 @@ export default {
   top: 0;
   background: #ef4e7b;
   height: 2px;
-  z-index: 1000;
+  z-index: 1024;
 }
 
 /* 导航栏 */
@@ -58,7 +58,7 @@ export default {
   top: 0;
   height: 50px;
   width: 100%;
-  background: #333333;
+  background: rgba(0, 0, 0, 0.8);
   text-align: center;
 }
 

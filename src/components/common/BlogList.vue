@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="blogs-right">
-      <a>
+      <a @click="toAbout">
         <img alt="" src="../../assets/background.jpg">
       </a>
     </div>
@@ -17,7 +17,14 @@
 
 <script>
 export default {
-  name: "BlogList"
+  name: "BlogList",
+  methods: {
+    toAbout() {
+      this.$router.push({
+        name: 'About',
+      })
+    }
+  }
 }
 </script>
 
@@ -38,17 +45,18 @@ export default {
 
 .blogs-right {
   float: left;
-  background: #ef4e7b;
   width: 30%;
   height: 200px;
   border-radius: 5px;
+  line-height: 200px;
 }
 
 img {
-  width: 80%;
+  width: 95%;
   height: 80%;
-  display: block;
-  margin: auto;
+  z-index: 1;
+  vertical-align: middle;
+  border-radius: 5px;
 }
 
 </style>

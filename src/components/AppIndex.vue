@@ -3,14 +3,6 @@
     <blog-list/>
     <blog-list/>
     <blog-list/>
-    <blog-list/>
-    <blog-list/>
-    <blog-list/>
-    <blog-list/>
-    <blog-list/>
-    <blog-list/>
-    <blog-list/>
-    <blog-list/>
   </div>
 </template>
 
@@ -20,13 +12,7 @@ import BlogList from "@/components/common/BlogList";
 export default {
   name: "Index",
   components: {BlogList},
-  methods: {
-    about() {
-      this.$router.push({
-        name: 'About',
-      })
-    },
-  }
+  methods: {}
 }
 </script>
 
