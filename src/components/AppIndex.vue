@@ -12,6 +12,9 @@ import BlogList from "@/components/common/BlogList";
 export default {
   name: "Index",
   components: {BlogList},
+  data() {
+    return {}
+  },
   methods: {}
 }
 </script>

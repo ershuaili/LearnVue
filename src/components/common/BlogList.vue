@@ -1,10 +1,12 @@
 <template>
-  <div class="blog-list">
+  <!--  v-for="(item,index) in blogs" :key="index"-->
+  <div v-for="(item,index) in blogs" :key="index" class="blog-list">
     <div class="blogs-left">
       <h1>这是个标题</h1>
       <p>博客简介</p>
       <div class="blogs-left-icon">
         <p>这里是一些图标</p>
+        <p>获取的一些消息:{{ item.name }}</p>
       </div>
     </div>
     <div class="blogs-right">
@@ -12,17 +14,38 @@
         <img alt="" src="../../assets/background.jpg">
       </a>
     </div>
+    <button @click="getBlogs">
+      获取数据
+    </button>
   </div>
 </template>
 
 <script>
+
+import axios from "axios";
+
 export default {
   name: "BlogList",
+  data() {
+    return {
+      blogs: []
+    }
+  },
+  method() {
+    this.getBlogs();
+  },
   methods: {
     toAbout() {
       this.$router.push({
         name: 'About',
       })
+    },
+
+    getBlogs() {
+      axios.get('/a').then(successResponse => {
+        this.blogs = successResponse.data;
+        console.log(successResponse.data)
+      });
     }
   }
 }
