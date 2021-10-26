@@ -14,9 +14,6 @@
         <img alt="" src="../../assets/background.jpg">
       </a>
     </div>
-    <button @click="getBlogs">
-      获取数据
-    </button>
   </div>
 </template>
 
@@ -31,7 +28,7 @@ export default {
       blogs: []
     }
   },
-  method() {
+  created() {
     this.getBlogs();
   },
   methods: {
@@ -45,6 +42,8 @@ export default {
       axios.get('/a').then(successResponse => {
         this.blogs = successResponse.data;
         console.log(successResponse.data)
+      }).catch(function (error) {
+        console.log(error);
       });
     }
   }

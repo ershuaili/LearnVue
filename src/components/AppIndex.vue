@@ -1,8 +1,6 @@
 <template>
   <div class="index">
     <blog-list/>
-    <blog-list/>
-    <blog-list/>
   </div>
 </template>
 
