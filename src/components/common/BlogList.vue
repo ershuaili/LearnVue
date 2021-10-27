@@ -1,17 +1,16 @@
 <template>
-  <!--  v-for="(item,index) in blogs" :key="index"-->
   <div v-for="(item,index) in blogs" :key="index" class="blog-list">
     <div class="blogs-left">
-      <h1>这是个标题</h1>
-      <p>博客简介</p>
+      <h1>{{ item.articleTitle }}</h1>
+      <p>博客id是:{{ item.articleId }}</p>
+      <p>{{ item.articleDescription }}</p>
       <div class="blogs-left-icon">
         <p>这里是一些图标</p>
-        <p>获取的一些消息:{{ item.name }}</p>
       </div>
     </div>
     <div class="blogs-right">
       <a @click="toAbout">
-        <img alt="" src="../../assets/background.jpg">
+        <img alt="" v-bind:src="item.articleFirstPicture">
       </a>
     </div>
   </div>
@@ -25,7 +24,20 @@ export default {
   name: "BlogList",
   data() {
     return {
-      blogs: []
+      blogs: [
+        {
+          articleId: '',
+          articleTitle: '',
+          articleFirstPicture: '',
+          articleDescription: '',
+          articleContent: '',
+          articleCreateTime: '',
+          articleUpdateTime: '',
+          articleVisitsCount: '',
+          articleCommentCount: '',
+          articleLikeCount: '',
+        }
+      ]
     }
   },
   created() {
@@ -39,9 +51,8 @@ export default {
     },
 
     getBlogs() {
-      axios.get('/a').then(successResponse => {
+      axios.get('/blog/selectAll').then(successResponse => {
         this.blogs = successResponse.data;
-        console.log(successResponse.data)
       }).catch(function (error) {
         console.log(error);
       });
